@@ -1,0 +1,45 @@
+HOW TO USE: brain-decisions
+===========================
+
+PURPOSE
+  Identify and capture every architectural decision, technology trade-off,
+  and rejected alternative from your session into clean Architecture Decision
+  Records (ADRs) saved with permanent durability in your Second Brain.
+
+CAPABILITIES
+  - Discovers implicit and explicit trade-offs from chat transcripts and code
+  - Isolates the rationale ("Why did we choose this over that?")
+  - Structures findings into lightweight ADRs (Context, Decision, Consequences)
+  - Checks existing `#decision` memories to avoid redundancy
+  - Saves with `!durable #decision` for permanent reference
+
+USE CASES
+  - Documenting why a particular library, protocol, or UI framework was picked
+  - Recording the reason an alternative approach failed or was dismissed
+  - Preserving non-obvious engineering rules before team members or future models touch the code
+
+IDEAS
+  - Run `/brain-decisions` whenever you finish discussing a tricky design problem
+  - Future agents will automatically recall these ADRs when asked about architecture
+
+PROMPTS YOU CAN PASTE
+  /brain-decisions
+
+  /brain-decisions Live Actions
+
+EXAMPLE FLOW
+  You:   /brain-decisions
+  Agent: [Mines transcript for design choices]
+         🏛️ Discovered Architectural Decisions:
+         1. Choice of UDP vs TCP for Ableton Live Bridge
+            - Context: Need sub-millisecond parameter feedback
+            - Decision: UDP Unicast on port 9001
+            - Consequence: Occasional lost packet acceptable for continuous faders
+         Save as durable memory?
+  You:   yes
+  Agent: [Calls remember with !durable #decision, confirms ID]
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Identify settled architectural trade-offs from session
+  2. Format into lightweight ADRs with Context, Decision, Consequences
+  3. Propose or execute save with #decision !durable
